@@ -1,0 +1,13 @@
+{
+  "name" : "aphp.fhir.template",
+  "type" : "fhir.template",
+  "license" : "CC0-1.0",
+  "description" : "AP-HP FHIR Template - for use with APHP-published FHIR IGs",
+  "author" : "https://www.aphp.fr/fhir",
+  "canonical" : "https://www.aphp.fr/templates/aphp.fhir.template",
+  "base" : "fhir.base.template",
+  "dependencies" : {
+    "fhir.base.template" : "current"
+  },
+  "version" : "0.0.1"
+}
