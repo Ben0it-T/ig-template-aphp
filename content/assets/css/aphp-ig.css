@@ -25,9 +25,21 @@
   --footer-hyperlink-text-color: rgb(91, 197, 242); /* 25. Footer hyperlinks font color */
   --footer-highlight-text-color: rgb(244, 242, 242);; /* 26. Footer highlight font color */
   --breadcrumb-bg-color: rgb(255, 255, 255)  ; /* 27. Breadcrumb background color */
-  --breadcrumb-text-color: rgb(37, 31, 84); /* 28. Breadcrumb font color */
+  --breadcrumb-text-color: rgb(0, 99, 175); /* 28. Breadcrumb font color */
 }
 
 #ig-status {
   clear: both;
+}
+
+table td, table th {
+  border: 1px solid rgb(208, 215, 216);
+}
+
+table th {
+  background-color: rgb(244, 242, 242);
+}
+
+h6 {
+  font-size: 13px;
 }
