@@ -10,6 +10,13 @@
       "path" : "",
       "status" : "ci-build",
       "current" : true
+    },
+    {
+      "version" : "1.0.0",
+      "desc" : "AP-HP FHIR IG Template v1.0",
+      "path" : "",
+      "status" : "release",
+      "current" : true
     }
   ]
 }
