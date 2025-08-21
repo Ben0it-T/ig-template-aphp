@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HTML>
-{% assign baselang = include.lang | slice: 0,2 %}
-{% if "ar;dv;fa;ha;he;iw;ji;ps;sd;ug;ur;yi;" contains baselang %}
-{% assign dir = 'rtl' %}
-{% else %}
-{% assign dir = 'ltr' %}
-{% endif %}
-<html xml:lang="{{include.lang}}" xmlns="http://www.w3.org/1999/xhtml" lang="{{include.lang}}" dir="{{dir}}">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>{{site.data.pages[localPage].titlelang[include.lang] | escape_once}} - {{site.data.fhir.ig.title | escape_once}} v{{site.data.fhir.ig.version | escape_once}}</title>
+    <title>{{site.data.pages[page.path].title | escape_once}} - {{site.data.fhir.ig.title | escape_once}} v{{site.data.fhir.ig.version | escape_once}}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -20,15 +14,14 @@
     <link href="{{site.data.info.assets}}assets/css/bootstrap-fhir.css" rel="stylesheet"/>
 
     <!-- Project extras -->
+    <link href="{{site.data.info.assets}}assets/css/project.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/jquery-ui.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/prism.css" rel="stylesheet" />
-    <link href="{{site.data.info.assets}}assets/css/project.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/cqf.css" rel="stylesheet" />
-    {% include fragment-css.html lang=include.lang %}
+    {% include fragment-css.html %}
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
-    <script type="text/javascript" src="{{site.data.info.assets}}assets/js/direction-management.js"> </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -37,43 +30,43 @@
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="fhir-logo" sizes="144x144" href="{{site.data.info.assets}}assets/ico/icon-fhir-144.png"/>
-    <link rel="fhir-logo" sizes="114x114" href="{{site.data.info.assets}}assets/ico/icon-fhir-114.png"/>
-    <link rel="fhir-logo" sizes="72x72" href="{{site.data.info.assets}}assets/ico/icon-fhir-72.png"/>
-    <link rel="fhir-logo" href="{{site.data.info.assets}}assets/ico/icon-fhir-57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{site.data.info.assets}}assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{site.data.info.assets}}assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{site.data.info.assets}}assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="{{site.data.info.assets}}assets/ico/icon-fhir-57.png"/>
     <link rel="shortcut icon" href="{{site.data.info.assets}}assets/ico/favicon.png"/>
 </head>
 <body onload="document.body.style.opacity='1'">
-{% assign label = {{site.data.pages[localPage].label}} | split: '.0' %}
+{% assign label = {{site.data.pages[page.path].label}} | split: '.0' %}
 <script src="{{site.data.info.assets}}assets/js/prism.js"></script>
 <script src="{{site.data.info.assets}}assets/js/prism-fml.js"></script>
 <script type="text/javascript" src="{{site.data.info.assets}}assets/js/mermaid.js"></script>
 <script type="text/javascript" src="{{site.data.info.assets}}assets/js/mermaid-init.js"></script>
 <style type="text/css">h2{--heading-prefix:"{{site.data.info.headingOffset}}{{label}}"}
-h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[localPage].label}}"}</style>
+h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[page.path].label}}"}</style>
 <div id="segment-header" class="segment">  <!-- segment-header -->
     <div class="container">  <!-- container -->
         {% if site.data.info.fcpspec == 'true' %}
         <div id="fcp-nav">
-            <a id="fcp-logo" no-external="true" href="https://confluence.hl7.org/display/FCP/FCP+Specification+Registry">
-                <img height="60" alt="{{site.data.stringsBase[include.lang]['VisitFCP']}}" src="assets/images/fcp-logo.png"/>
+            <a id="fcp-logo" data-no-external="true" href="https://confluence.hl7.org/display/FCP/FCP+Specification+Registry">
+                <img height="60" alt="Visit the FHIR Community Process Specification Registry" src="assets/images/fcp-logo.png"/>
             </a>
         </div>
         {% endif %}
-        {% include fragment-header.html lang=include.lang %}
+        {% include fragment-header.html %}
         {% if site.data.info.releaselabel != '' %}
-        {% assign status = site.data.info.releaselabellang[include.lang] %}
+        {% assign status = site.data.info.releaselabel %}
         {% else %}
         {% assign status = site.data.fhir.ig.status %}
         {% endif %}
         <div id="ig-status">
-            <p><span style="font-size:12pt;font-weight:bold">{{site.data.fhir.ig.titlelang[include.lang] | escape_once}}</span>
+            <p><span style="font-size:12pt;font-weight:bold">{{site.data.fhir.ig.title | escape_once}}</span>
                 <br/>
                 <span style="display:inline-block;">{{site.data.fhir.ig.version}} - {{status}}
 {% assign igId = site.data.fhir.ig.id | prepend: "ImplementationGuide/" %}
 {% for jurisdiction in site.data.resources[igId].jurisdictions %}
 {% if jurisdiction.flag %}
-  <img alt="{{jurisdiction.name}} {{site.data.stringsBase[include.lang]['CountryFlag']}}" src="assets/images/{{jurisdiction.flag}}.svg" height="16" title="{{jurisdiction.name}}"/>
+  <img alt="{{jurisdiction.name}} flag" src="assets/images/{{jurisdiction.flag}}.svg" height="16" title="{{jurisdiction.name}}"/>
 {% elsif jurisdiction.code %}
   <span title="{{jurisdiction.name}}">{{jurisdiction.code}}</span>
 {% else %}
@@ -94,9 +87,6 @@ h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[
         <nav class="navbar navbar-inverse">
             <!--status-bar-->
             <div class="container">
-                {% if dir=="rtl" %}
-                {% include fragment-language.html lang=include.lang %}
-                {% endif %}
                 <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
                     <span class="icon-bar"> </span>
                     <span class="icon-bar"> </span>
@@ -104,11 +94,8 @@ h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[
                 </button>
                 <a class="navbar-brand hidden" href="{{site.data.fhir.path}}index.html">FHIR</a>
                 <div class="nav-collapse collapse navbar-inverse-collapse">
-                    {% include {{ include.lang }}/menu.xml %}
+                    {% include menu.xml %}
                 </div>  <!-- /.nav-collapse -->
-                {% if dir=="ltr" %}
-                {% include fragment-language.html lang=include.lang %}
-                {% endif %}
             </div>  <!-- /.container -->
         </nav>  <!-- /.navbar -->
         <!-- /HEADER CONTENT -->
@@ -119,15 +106,15 @@ h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[
 <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
     <div class="container">  <!-- container -->
         <ul class="breadcrumb">
-            {{site.data.pages[localPage].breadcrumblang[include.lang]}}
+            {{site.data.pages[page.path].breadcrumb}}
             {% if shownav == 'y' %}
-            <span style="float: var(--ig-right);">
-{% if site.data.pages[localPage].previous %}
-            <a href="{{site.data.pages[localPage].previous}}">{{site.data.stringsBase[include.lang]['PrevPage'] | escape_once}}</a> |
+            <span style="float:right;">
+{% if site.data.pages[page.path].previous %}
+            <a href="{{site.data.pages[page.path].previous}}">&lt;prev</a> |
 {% endif %}
-            <a href="#bottom">{{site.data.stringsBase[include.lang]['PageBottom']}}</a>
-{% if site.data.pages[localPage].next %}
-          | <a href="{{site.data.pages[localPage].next}}">{{site.data.stringsBase[include.lang]['NextPage'] | escape_once}}</a>
+            <a href="#bottom">bottom</a>
+{% if site.data.pages[page.path].next %}
+          | <a href="{{site.data.pages[page.path].next}}">next&gt;</a>
 {% endif %}
           </span>
             {% endif %}
