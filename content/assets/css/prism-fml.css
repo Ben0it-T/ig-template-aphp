@@ -1,0 +1,43 @@
+
+code.language-fml .keyword {
+  color: black;
+  font-weight: bold;
+}
+
+code.language-fml .rule-name {
+  font-style: italic;
+}
+
+code.language-fml .function {
+  color: black;
+  font-weight: bold;
+}
+
+code.language-fml .punctuation {
+  color: navy;
+}
+
+code.language-fml .builtin {
+  font-weight: bold;
+}
+
+code.language-fml .variable {
+  color: maroon;
+}
+
+code.language-fml .arrow {
+  font-weight: bold;
+}
+
+code.language-fml .constant {
+  color: blue;
+}
+
+code.language-fml .operator {
+  color: black;
+  font-weight: bold;
+}
+
+code.language-fml .property {
+  color: #333333;
+}
