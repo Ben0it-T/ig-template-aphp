@@ -1,43 +1,61 @@
-
-code.language-fml .keyword {
-  color: black;
-  font-weight: bold;
+pre.language-fml {
+    background-color: #eee;
+    text-shadow: unset;
 }
 
-code.language-fml .rule-name {
-  font-style: italic;
+pre.language-fml code.language-fml {
+    white-space: pre-wrap;
+    text-shadow: unset;
 }
 
-code.language-fml .function {
-  color: black;
-  font-weight: bold;
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    background: unset;
 }
 
-code.language-fml .punctuation {
-  color: navy;
+
+pre.language-fml code.language-fml .token.keyword {
+    color: black;
+    font-weight: bold;
 }
 
-code.language-fml .builtin {
-  font-weight: bold;
+pre.language-fml code.language-fml .token.rule-name {
+    font-style: italic;
 }
 
-code.language-fml .variable {
-  color: maroon;
+pre.language-fml code.language-fml .token.function {
+    color: black;
+    font-weight: bold;
 }
 
-code.language-fml .arrow {
-  font-weight: bold;
+pre.language-fml code.language-fml .token.punctuation {
+    color: navy;
 }
 
-code.language-fml .constant {
-  color: blue;
+pre.language-fml code.language-fml .token.builtin {
+    font-weight: bold;
 }
 
-code.language-fml .operator {
-  color: black;
-  font-weight: bold;
+pre.language-fml code.language-fml .token.variable {
+    color: maroon;
 }
 
-code.language-fml .property {
-  color: #333333;
+pre.language-fml code.language-fml .token.arrow {
+    font-weight: bold;
+}
+
+pre.language-fml code.language-fml .token.constant {
+    color: blue;
+}
+
+pre.language-fml code.language-fml .token.operator {
+    color: black;
+    font-weight: bold;
+}
+
+pre.language-fml code.language-fml .token.property {
+    color: #333333;
 }

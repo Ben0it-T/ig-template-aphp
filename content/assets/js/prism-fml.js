@@ -38,14 +38,14 @@
         // type de paramètre
         'type-name': [
             {
-                pattern: /(:\s*)(([A-Za-z]+))(?=[),])/,
+                pattern: /(:\s*)([A-Za-z]+)(?=[),])/,
                 lookbehind: true,
                 greedy: true
             }
 
         ],
 
-        // nom des rêgles
+        // nom des règles
         'rule-name': [
             {
                 pattern: /["'](?:[^"'\\]|\\.)*["']*;/,
@@ -123,7 +123,7 @@
         // Ponctuation et opérateurs
         'punctuation': /[{}()\[\],;]/,
         
-        'operator': /[:=\.]/,
+        'operator': /[:=.]/,
 
         // Identifiants de fonction/invocation
         'function': {
@@ -144,19 +144,4 @@
     // Alias pour une meilleure compatibilité
     Prism.languages.fhirmap = Prism.languages.fml;
     Prism.languages['fhir-mapping'] = Prism.languages.fml;
-
-    // Hook pour améliorer la coloration des structures spécifiques
-    Prism.hooks.add('before-tokenize', function(env) {
-        if (env.language !== 'fml') return;
-        
-        // Prétraitement optionnel si nécessaire
-    });
-
-    // Hook pour post-traitement des tokens
-    Prism.hooks.add('after-tokenize', function(env) {
-        if (env.language !== 'fml') return;
-        
-        // Post-traitement optionnel pour des cas spéciaux
-    });
-
 }(Prism));
