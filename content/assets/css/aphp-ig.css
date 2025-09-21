@@ -87,3 +87,69 @@ h6 {
   padding: 2px;
   color: rgba(33, 37, 41, 0.75);
 }
+
+pre[class*='language-fsh'] {
+  background-color: #eee;
+  text-shadow: unset;
+}
+
+pre[class*='language-fsh'] code[class*='language-fsh'] {
+  white-space: pre-wrap;
+  text-shadow: unset;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-fsh'] {
+  background-color: #eee;
+  padding: 0.1em 0.3em;
+  border: 1px solid #cccccc;
+  border-radius: 0.3em;
+  font-size: 1em;
+  display: inline-block;
+  margin: 2px 0;
+  text-shadow: unset;
+  white-space: normal;
+}
+
+pre[class*='language-fsh'] .token.operator,
+pre[class*='language-fsh'] .token.rule-indicator {
+  background: unset;
+}
+
+pre[class*=language-fsh] .token.caret {
+  border-top-color: transparent;
+  width: unset;
+  height: unset;
+  vertical-align: unset;
+}
+
+pre[class*='language-fml'] {
+  background-color: #eee;
+  text-shadow: unset;
+}
+
+pre[class*='language-fml'] code[class*='language-fml'] {
+  white-space: pre-wrap;
+  text-shadow: unset;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-fml'] {
+  background-color: #eee;
+  padding: 0.1em 0.3em;
+  border: 1px solid #cccccc;
+  border-radius: 0.3em;
+  font-size: 1em;
+  display: inline-block;
+  margin: 2px 0;
+  text-shadow: unset;
+  white-space: normal;
+}
+
+pre[class*='language-fml'] .token.operator {
+  background: unset;
+}
+
+pre[class*='language-fml'] .token.url {
+  background: unset;
+}
