@@ -28,6 +28,12 @@
   --breadcrumb-text-color: rgb(0, 99, 175); /* 28. Breadcrumb font color */
 }
 
+/* Override inline-block du conteneur parent */
+div[style*="inline-block"][markdown="1"] {
+    display: block !important;
+    width: 100% !important;
+}
+
 #ig-status {
   clear: both;
 }
