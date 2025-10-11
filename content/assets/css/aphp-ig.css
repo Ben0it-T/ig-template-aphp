@@ -120,7 +120,8 @@ pre[class*='language-json'] code[class*='language-json'] {
 pre[class*='language-fsh'] .token.operator,
 pre[class*='language-fsh'] .token.rule-indicator,
 pre[class*='language-fml'] .token.operator,
-pre[class*='language-fml'] .token.url {
+pre[class*='language-fml'] .token.url,
+pre[class*='language-json'] .token.operator {
   background: unset;
 }
 
